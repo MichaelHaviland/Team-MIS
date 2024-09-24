@@ -1,4 +1,8 @@
 # Team MIS MIST 4610 Group Project 1
 
 # Team Members
-##Michael Haviland
+1. Jack Gust
+2. Katie Lee
+3. Jolina Dorgan
+4. Emil Kali
+5. Michael Haviland
