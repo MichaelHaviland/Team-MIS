@@ -7,4 +7,8 @@
 5. Michael Haviland [@MichaelHaviland](https://github.com/MichaelHaviland)
 
 # Problem Description
-For this project, we are tasked with designing and implementing a comprehensive SQL database that models the University of Georgia (UGA) and its operations. Our goal is to create a data model that captures key aspects of university life, including students, faculty, courses, departments, events, and campus resources. The challenge is to ensure that the database is capable of handling the complexity of these interconnected entities while providing meaningful insights for managerial decision-making.
+The task at hand is to design and build a relational database that captures the core operations of the University of Georgia (UGA). At the heart of this model is the Student entity, which represents the main focus of the university’s academic and extracurricular activities. Each student is enrolled in courses, taught by faculty across various departments, while utilizing a wide range of university resources such as libraries, classrooms, and dining facilities. Beyond academics, students also participate in events and clubs, further enriching their experience.
+
+This project aims to accurately represent the relationships between students, faculty, courses, departments, and campus facilities, along with activities like events and clubs. We will create sample data to populate the database, ensuring it reflects realistic scenarios. Once the database is built, we will run meaningful queries to extract valuable insights about university operations—such as tracking student performance, analyzing course demand, managing faculty workloads, and optimizing resource use.
+
+The goal is to provide UGA with a comprehensive system that helps administrators make informed, data-driven decisions, ultimately improving efficiency and enhancing the student experience across the university.
