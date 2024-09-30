@@ -27,8 +27,11 @@ CREATE TABLE IF NOT EXISTS `Student` (
   `studentFName` VARCHAR(45) NULL,
   `studentLName` VARCHAR(45) NULL,
   `studentEmail` VARCHAR(45) NULL,
+  `studentYear` VARCHAR(45) NULL,
+  `studentGpa` VARCHAR(45) NULL,
+  `studentType` VARCHAR(45) NULL,
+  `studentHomeState` VARCHAR(45) NULL,
   `idMealPlan` INT NOT NULL,
-  `year` VARCHAR(45) NULL,
   PRIMARY KEY (`idStudent`),
   INDEX `fk_Student_Meal Plan1_idx` (`idMealPlan` ASC) VISIBLE,
   CONSTRAINT `fk_Student_Meal Plan1`
@@ -53,10 +56,9 @@ ENGINE = InnoDB;
 -- Table `Enrollment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Enrollment` (
-  `idEnrollment` INT NOT NULL,
   `idStudent` INT NOT NULL,
   `idClasses` INT NOT NULL,
-  PRIMARY KEY (`idEnrollment`, `idStudent`),
+  PRIMARY KEY (`idStudent`, `idClasses`),
   INDEX `fk_Enrollment_Student1_idx` (`idStudent` ASC) VISIBLE,
   INDEX `fk_Enrollment_Classes1_idx` (`idClasses` ASC) VISIBLE,
   CONSTRAINT `fk_Enrollment_Student1`
@@ -78,7 +80,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Organizations` (
   `idOrganizations` INT NOT NULL,
   `organizationName` VARCHAR(45) NULL,
-  `organizationType` VARCHAR(45) NULL,
+  `OrganizationType` VARCHAR(45) NULL,
   PRIMARY KEY (`idOrganizations`))
 ENGINE = InnoDB;
 
@@ -158,12 +160,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DormRoom` (
   `idDormRoom` INT NOT NULL,
-  `idResidenceHalls` INT NOT NULL,
   `dormRoomType` VARCHAR(45) NULL,
-  PRIMARY KEY (`idDormRoom`),
-  INDEX `fk_DormRoom_Residence Halls1_idx` (`idResidenceHalls` ASC) VISIBLE,
-  CONSTRAINT `fk_DormRoom_Residence Halls1`
-    FOREIGN KEY (`idResidenceHalls`)
+  `idResidenceHall` INT NOT NULL,
+  PRIMARY KEY (`idDormRoom`, `idResidenceHall`),
+  INDEX `fk_DormRoom_ResidenceHalls1_idx` (`idResidenceHall` ASC) VISIBLE,
+  CONSTRAINT `fk_DormRoom_ResidenceHalls1`
+    FOREIGN KEY (`idResidenceHall`)
     REFERENCES `ResidenceHalls` (`idResidenceHall`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
