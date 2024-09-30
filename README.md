@@ -12,3 +12,6 @@ The task at hand is to design and build a relational database that captures the 
 This project aims to accurately represent the relationships between students, faculty, courses, departments, and campus facilities, along with activities like events and clubs. We will create sample data to populate the database, ensuring it reflects realistic scenarios. Once the database is built, we will run meaningful queries to extract valuable insights about university operations—such as tracking student performance, analyzing course demand, managing faculty workloads, and optimizing resource use.
 
 The goal is to provide UGA with a comprehensive system that helps administrators make informed, data-driven decisions, ultimately improving efficiency and enhancing the student experience across the university.
+
+# Data Model & Description
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/TeamMIS_DataModel.jpeg "Data Model")
