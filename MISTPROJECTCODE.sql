@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `Student` (
   `studentLName` VARCHAR(45) NULL,
   `studentEmail` VARCHAR(45) NULL,
   `idMealPlan` INT NOT NULL,
-  `student` VARCHAR(45) NULL,
+  `year` VARCHAR(45) NULL,
   PRIMARY KEY (`idStudent`),
   INDEX `fk_Student_Meal Plan1_idx` (`idMealPlan` ASC) VISIBLE,
   CONSTRAINT `fk_Student_Meal Plan1`
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Organizations` (
   `idOrganizations` INT NOT NULL,
   `organizationName` VARCHAR(45) NULL,
-  `OrganizationType` VARCHAR(45) NULL,
+  `organizationType` VARCHAR(45) NULL,
   PRIMARY KEY (`idOrganizations`))
 ENGINE = InnoDB;
 
