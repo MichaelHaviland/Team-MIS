@@ -1,0 +1,11 @@
+idStudent,studentFName,studentLName,studentEmail,studentYear,Gpa,studentType,studentHomeState,idMealPlan
+101,John,Doe,student101@uga.edu,Freshman,3.5,part-time,GA,402
+102,Jane,Smith,student102@uga.edu,Sophomore,3.2,part-time,FL,402
+103,Jake,Johnson,student103@uga.edu,Junior,2.3,part-time,AL,402
+104,Jill,Williams,student104@uga.edu,Senior,3.9,graduate,TN,401
+105,Joe,Jones,student105@uga.edu,Graduate,1.2,part-time,SC,402
+106,Judy,Brown,student106@uga.edu,Freshman,3.3,graduate,NC,403
+107,Jeff,Davis,student107@uga.edu,Sophomore,3.7,full-time,MS,401
+108,Jasmine,Miller,student108@uga.edu,Junior,3.0,full-time,KY,402
+109,Jack,Wilson,student109@uga.edu,Senior,2.9,full-time,VA,403
+110,Joanna,Moore,student110@uga.edu,Graduate,3.6,part-time,GA,401

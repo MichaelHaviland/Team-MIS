@@ -1,0 +1,11 @@
+idParking,parkingLocation,parkingType
+S07,South,General
+S16,South,Reserved
+W20,West,Staff
+S09,South,Visitor
+E12,East,General
+E03,East,Reserved
+S15,South,Staff
+W19,West,Visitor
+W01,West,General
+S03,South,Reserved
