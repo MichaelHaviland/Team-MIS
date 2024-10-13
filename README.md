@@ -14,4 +14,4 @@ This project aims to accurately represent the relationships between students, fa
 The goal is to provide UGA with a comprehensive system that helps administrators make informed, data-driven decisions, ultimately improving efficiency and enhancing the student experience across the university.
 
 # Data Model & Description
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/project1model.png "Data Model")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/mist%204610%20FINAL%20data%20model.jpeg "Data Model")
