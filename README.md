@@ -23,7 +23,7 @@ The ResidenceHalls and DormRoom entities are tied to the Student through room as
 The database also supports extracurricular tracking via the StudentInvolvement table, which manages the many-to-many relationship between students and organizations. A student can join multiple organizations, and each organization can have many students. Similarly, the ParkingAssignment table manages student parking, connecting the Parking entity with the Student entity to track assigned parking spots and the duration of assignments.
 
 Additionally, the StudentPrograms table captures the relationship between students and academic programs. Each student can be enrolled in multiple programs, and each program can have many students.
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/datamodelagainfinalhopefully.jpeg "Data Model")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/datamodelFINAL.png "Data Model")
 
 # Data Dictionary: University Database
 
