@@ -163,6 +163,17 @@ Additionally, the StudentPrograms table captures the relationship between studen
 ---
 # Queries
 
+| Feature                   | Query 1 | Query 2 | Query 3 | Query 4 | Query 5 | Query 6 | Query 7 | Query 8 | Query 9 | Query 10 |
+|---------------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|----------|
+| **Multiple Table Join**    |    X    |    X    |    X    |    X    |    X    |    X    |         |         |    X    |    X     |
+| **Subquery**               |    X    |    X    |         |         |         |         |         |    X    |         |          |
+| **GROUP BY**               |         |         |         |    X    |         |    X    |         |         |    X    |    X     |
+| **GROUP BY with HAVING**   |         |         |         |         |         |         |         |         |    X    |          |
+| **Multi condition WHERE**  |    X    |         |         |         |         |         |    X    |    X    |    X    |          |
+| **Built in functions**     |    X    |         |         |         |         |         |         |         |    X    |    X     |
+| **REGEXP**                 |         |         |         |         |         |         |    X    |    X    |    X    |          |
+| **NOT EXISTS**             |    X    |         |         |         |         |         |         |         |    X    |          |
+
 ## Query 1:
 ![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query1.jpg "Query 1")
 ###  Show all students who do not live on campus, but do have parking
