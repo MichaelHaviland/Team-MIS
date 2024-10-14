@@ -14,9 +14,14 @@ This project aims to accurately represent the relationships between students, fa
 The goal is to provide UGA with a comprehensive system that helps administrators make informed, data-driven decisions, ultimately improving efficiency and enhancing the student experience across the university.
 
 # Data Model & Description
-The provided database model supports the storage of student-related data for a university system, including meal plans, classes, residence halls, parking assignments, and student involvement in organizations. The core entity, Students, holds information about the student's names, GPA, year, type, and home state. Students is connected to a variety of entities. MealPlan has a one to one relationship with students, as one student can only have one meal plan. MealPlan also tracks the type and cost of the meal plan. The Student entity is also related to the Classes entity via the Enrollment associative table. This many-to-many relationship allows students to enroll in multiple classes, and each class can have many students.
+The provided database model supports the storage of student-related data for a university system, including meal plans, classes, residence halls, parking assignments, and student involvement in organizations. The core entity, Students, holds information about the student's names, GPA, year, type, and home state. Students is connected to a variety of entities. 
+
+MealPlan has a one to one relationship with students, as one student can only have one meal plan. MealPlan also tracks the type and cost of the meal plan. The Student entity is also related to the Classes entity via the Enrollment associative table. This many-to-many relationship allows students to enroll in multiple classes, and each class can have many students.
+
 The ResidenceHalls and DormRoom entities are tied to the Student through room assignments. A student can have a room in a dorm (via the RoomAssignment table), and each residence hall has multiple rooms. The RoomAssignment table serves as a weak entity that tracks which students are assigned to which rooms, including details such as check-in and check-out dates.
+
 The database also supports extracurricular tracking via the StudentInvolvement table, which manages the many-to-many relationship between students and organizations. A student can join multiple organizations, and each organization can have many students. Similarly, the ParkingAssignment table manages student parking, connecting the Parking entity with the Student entity to track assigned parking spots and the duration of assignments.
+
 Additionally, the StudentPrograms table captures the relationship between students and academic programs. Each student can be enrolled in multiple programs, and each program can have many students.
 ![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/datamodelagainfinalhopefully.jpeg "Data Model")
 
