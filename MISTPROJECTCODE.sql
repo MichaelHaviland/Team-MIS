@@ -80,7 +80,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Organizations` (
   `idOrganizations` INT NOT NULL,
   `organizationName` VARCHAR(45) NULL,
-  `OrganizationType` VARCHAR(45) NULL,
+  `organizationType` VARCHAR(45) NULL,
   PRIMARY KEY (`idOrganizations`))
 ENGINE = InnoDB;
 
