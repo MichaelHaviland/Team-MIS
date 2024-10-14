@@ -157,3 +157,29 @@ The goal is to provide UGA with a comprehensive system that helps administrators
 | expectedGraduationTerm     | Term in which the student is expected to graduate | VARCHAR | 45   |        |      |
 
 ---
+# Queries
+
+## Query 1:
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query1.jpg "Query 1")
+###  Show all students who do not live on campus, but do have parking
+This question is useful in finding out how many students have parking on campus and need to drive to campus. This information could be useful in finding out how much parking will be available for events. Combine this question with its inverse (how many live on campus and have parking) and you have a good estimate for how many cars the school will have to deal with at any given time.
+
+## Query 2: 
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query2.jpg "Query 2")
+### Count how many freshmen are in each organization at UGA.
+This question is useful in finding out which organizations at UGA are most appealing to incoming students. The data could be used to allocate funding to different organizations based on the amount of incoming freshmen applying. It can also be used to help figure out which organizations are struggling to obtain new applicants.
+
+## Query 3: 
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query3.jpg "Query 3")
+### Determine how many students reside in high-rise residence halls (Brumby, Russell, Creswell, or BDM), have an active meal plan, and are registered for a university parking permit.
+This question is helpful for finding out how many people utilize UGA’s resources, specifically how many students are taking advantage of multiple university resources. This is useful for the university to budget for future years as well as increase or decrease allocation sizes for dorms, parking, and meal plans based on how many students need them. In the long run, this will prevent resource shortages, ultimately increasing the quality of life for the student body as a whole.
+
+## Query 4: 
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query4.jpg "Query 4")
+### Display the GPA of Student-Athletes (students in Sports Organizations) as well as their intended majors.
+This question would be helpful for Student-Athlete advisors to track the progress of Student-Athletes. The academic performance of student-athletes is essential for them to be eligible to play on the team. This query could also be a good indicator of which programs student-athletes tend to succeed in and which ones they tend to need help for. Additionally, we can see which teams tend to perform well academically. Overall, this will allow UGA to allocate tutors and other academic resources accordingly to student-athletes.
+
+## Query 5:
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query5.jpg "Query 5")
+### List the names and majors of students whose GPA is lower than the average GPA of the University
+This question can be useful for the University in tracking which students are struggling, failing, or at risk of not graduating, allowing advisors of respective programs to assist the struggling students. The University can also see which programs tend to be more competitive or rigorous, and therefore diagnose whether the academic struggles are a problem of the student, the program structure, or the staff.
