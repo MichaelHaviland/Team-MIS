@@ -14,7 +14,11 @@ This project aims to accurately represent the relationships between students, fa
 The goal is to provide UGA with a comprehensive system that helps administrators make informed, data-driven decisions, ultimately improving efficiency and enhancing the student experience across the university.
 
 # Data Model & Description
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/mist%204610%20FINAL%20data%20model.jpeg "Data Model")
+The provided database model supports the storage of student-related data for a university system, including meal plans, classes, residence halls, parking assignments, and student involvement in organizations. The core entity, Students, holds information about the student's names, GPA, year, type, and home state. Students is connected to a variety of entities. MealPlan has a one to one relationship with students, as one student can only have one meal plan. MealPlan also tracks the type and cost of the meal plan. The Student entity is also related to the Classes entity via the Enrollment associative table. This many-to-many relationship allows students to enroll in multiple classes, and each class can have many students.
+The ResidenceHalls and DormRoom entities are tied to the Student through room assignments. A student can have a room in a dorm (via the RoomAssignment table), and each residence hall has multiple rooms. The RoomAssignment table serves as a weak entity that tracks which students are assigned to which rooms, including details such as check-in and check-out dates.
+The database also supports extracurricular tracking via the StudentInvolvement table, which manages the many-to-many relationship between students and organizations. A student can join multiple organizations, and each organization can have many students. Similarly, the ParkingAssignment table manages student parking, connecting the Parking entity with the Student entity to track assigned parking spots and the duration of assignments.
+Additionally, the StudentPrograms table captures the relationship between students and academic programs. Each student can be enrolled in multiple programs, and each program can have many students.
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/datamodelagainfinalhopefully.jpeg "Data Model")
 
 # Data Dictionary: University Database
 
@@ -165,12 +169,12 @@ The goal is to provide UGA with a comprehensive system that helps administrators
 This question is useful in finding out how many students have parking on campus and need to drive to campus. This information could be useful in finding out how much parking will be available for events. Combine this question with its inverse (how many live on campus and have parking) and you have a good estimate for how many cars the school will have to deal with at any given time.
 
 ## Query 2: 
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query2.jpg "Query 2")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query2.png "Query 2")
 ### Count how many freshmen are in each organization at UGA.
 This question is useful in finding out which organizations at UGA are most appealing to incoming students. The data could be used to allocate funding to different organizations based on the amount of incoming freshmen applying. It can also be used to help figure out which organizations are struggling to obtain new applicants.
 
 ## Query 3: 
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query3.jpg "Query 3")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query3.png "Query 3")
 ### Determine how many students reside in high-rise residence halls (Brumby, Russell, Creswell, or BDM), have an active meal plan, and are registered for a university parking permit.
 This question is helpful for finding out how many people utilize UGA’s resources, specifically how many students are taking advantage of multiple university resources. This is useful for the university to budget for future years as well as increase or decrease allocation sizes for dorms, parking, and meal plans based on how many students need them. In the long run, this will prevent resource shortages, ultimately increasing the quality of life for the student body as a whole.
 
@@ -198,3 +202,13 @@ This question is important as it helps UGA understand the geographic distributio
 ![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query8.png "Query 8")
 ### List the students who are actively involved in extracurricular activities but are currently not enrolled in any courses.
 This question is significant to UGA because it identifies students who are engaged in campus life yet may be struggling academically. Understanding this allows the university to tailor support services, such as academic advising or tutoring, to encourage these students. Additionally, it provides insights into the balance between student involvement and academic engagement. By addressing the needs of these students, UGA can improve the educational experience and foster a more supportive academic environment.
+
+## Query 9:
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query9.png "Query 9")
+### Determine the average GPA of each organization. List from highest GPA to lowest. 
+This query is intended to find if certain organizations attract higher GPA students and/or if higher GPA students are associated with certain organizations. With additional data, you can add a student count and/or additional filter with a “having” clause to eliminate organizations with not a large enough sample size to ensure the data is meaningful. However, generally this query is beneficial to the university to see whether students’ academic success aligns with involvement in specific organizations, helping the university better understand the extent of extracurricular engagement on student success.
+
+## Query 10:
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query10.png "Query 10")
+### Determine the average GPA (from highest to lowest), the total number of students, and the number of distinct programs for each home state which attending students are from. 
+This question intends to evaluate how students from different states perform academically and the diversity of programs they are enrolled in. It helps the university identify regional strengths and weaknesses as well as improve program-based recruitment to cater towards specific states. 
