@@ -185,16 +185,16 @@ This question would be helpful for Student-Athlete advisors to track the progres
 This question can be useful for the University in tracking which students are struggling, failing, or at risk of not graduating, allowing advisors of respective programs to assist the struggling students. The University can also see which programs tend to be more competitive or rigorous, and therefore diagnose whether the academic struggles are a problem of the student, the program structure, or the staff.
 
 ## Query 6:
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query6.jpg "Query 6")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query6.png "Query 6")
 ### List the students with a GPA greater than 3.5, who are classified as juniors and greater, currently enrolled in MARK 3000, and actively participating in the American Marketing Association (AMA) club.​
 This question helps UGA identify high-achieving students who are excelling academically and engaged in extracurricular activities outside of academics alone. It provides insights into how involvement in extracurriculars, such as in AMA, correlates with strong academic performance. This can also potentially help guide scholarship and award opportunities. Additionally, it helps the university understand which courses and clubs attract top students, which helps with resource allocation and promoting these extracurriculars.
 
 ## Query 7:
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query7.jpg "Query 7")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query7.png "Query 7")
 ### Retrieve a list of home states that have at least 1 student who is enrolled in STEM programs and is expected to graduate in Spring 2027.
 This question is important as it helps UGA understand the geographic distribution of STEM students, which can help with resource allocation and can lead to the implication of targeted support services. By identifying home states, the university can create personalized outreach initiatives to enhance academic success. This information aids in evaluating the effectiveness of the STEM programs and can guide recruitment to attract more students from those regions. Overall, it supports UGA's goal of optimizing student experiences.
 
 ## Query 8:
-![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query8.jpg "Query 8")
+![Alt text](https://github.com/MichaelHaviland/Team-MIS/blob/main/query8.png "Query 8")
 ### List the students who are actively involved in extracurricular activities but are currently not enrolled in any courses.
 This question is significant to UGA because it identifies students who are engaged in campus life yet may be struggling academically. Understanding this allows the university to tailor support services, such as academic advising or tutoring, to encourage these students. Additionally, it provides insights into the balance between student involvement and academic engagement. By addressing the needs of these students, UGA can improve the educational experience and foster a more supportive academic environment.
