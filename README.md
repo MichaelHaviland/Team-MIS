@@ -19,142 +19,141 @@ The goal is to provide UGA with a comprehensive system that helps administrators
 # Data Dictionary: University Database
 
 ---
+## Table: MealPlan
 
-## 1. Table: MealPlan
-
-| Column Name   | Data Type   | Description                     | Constraints   |
-|---------------|-------------|---------------------------------|---------------|
-| idMealPlan    | INT         | Unique identifier for each meal plan | Primary Key   |
-| mealPlanType  | VARCHAR(45) | Type of meal plan (e.g., Regular, Premium) | Nullable      |
-| planCost      | VARCHAR(45) | Cost of the meal plan            | Nullable      |
-
----
-
-## 2. Table: Student
-
-| Column Name       | Data Type   | Description                                 | Constraints        |
-|-------------------|-------------|---------------------------------------------|--------------------|
-| idStudent         | INT         | Unique identifier for each student          | Primary Key        |
-| studentFName      | VARCHAR(45) | First name of the student                   | Nullable           |
-| studentLName      | VARCHAR(45) | Last name of the student                    | Nullable           |
-| studentEmail      | VARCHAR(45) | Email of the student                        | Nullable           |
-| studentYear       | VARCHAR(45) | Academic year of the student (e.g., Freshman, Sophomore) | Nullable           |
-| studentGpa        | VARCHAR(45) | GPA of the student                          | Nullable           |
-| studentType       | VARCHAR(45) | Type of student (e.g., full-time, part-time) | Nullable           |
-| studentHomeState  | VARCHAR(45) | Home state of the student                   | Nullable           |
-| idMealPlan        | INT         | Foreign key referencing `MealPlan.idMealPlan` | Not Null, Foreign Key |
+| Column Name   | Description                              | Data Type | Size | Format | Key? |
+|---------------|------------------------------------------|-----------|------|--------|------|
+| idMealPlan    | PK, unique identifier for each meal plan | INT       |      |        | PK   |
+| mealPlanType  | Type of meal plan                        | VARCHAR   | 45   |        |      |
+| planCost      | Cost of the meal plan                    | VARCHAR   | 45   |        |      |
 
 ---
 
-## 3. Table: Classes
+## Table: Student
 
-| Column Name   | Data Type   | Description                         | Constraints   |
-|---------------|-------------|-------------------------------------|---------------|
-| idClasses     | INT         | Unique identifier for each class    | Primary Key   |
-| className     | VARCHAR(45) | Name of the class                   | Nullable      |
-
----
-
-## 4. Table: Enrollment
-
-| Column Name   | Data Type   | Description                         | Constraints   |
-|---------------|-------------|-------------------------------------|---------------|
-| idStudent     | INT         | Foreign key referencing `Student.idStudent` | Primary Key, Foreign Key |
-| idClasses     | INT         | Foreign key referencing `Classes.idClasses` | Primary Key, Foreign Key |
+| Column Name       | Description                                 | Data Type | Size | Format | Key? |
+|-------------------|---------------------------------------------|-----------|------|--------|------|
+| idStudent         | PK, unique identifier for each student      | INT       |      |        | PK   |
+| studentFName      | First name of the student                   | VARCHAR   | 45   |        |      |
+| studentLName      | Last name of the student                    | VARCHAR   | 45   |        |      |
+| studentEmail      | Email of the student                        | VARCHAR   | 45   |        |      |
+| studentYear       | Academic year of the student                | VARCHAR   | 45   |        |      |
+| studentGpa        | GPA of the student                          | VARCHAR   | 45   |        |      |
+| studentType       | Type of student (e.g., full-time, part-time) | VARCHAR   | 45   |        |      |
+| studentHomeState  | Home state of the student                   | VARCHAR   | 45   |        |      |
+| idMealPlan        | FK, references `MealPlan.idMealPlan`        | INT       |      |        | FK   |
 
 ---
 
-## 5. Table: Organizations
+## Table: Classes
 
-| Column Name         | Data Type   | Description                             | Constraints   |
-|---------------------|-------------|-----------------------------------------|---------------|
-| idOrganizations     | INT         | Unique identifier for each organization | Primary Key   |
-| organizationName    | VARCHAR(45) | Name of the organization                | Nullable      |
-| OrganizationType    | VARCHAR(45) | Type of the organization (e.g., club, society) | Nullable      |
-
----
-
-## 6. Table: Parking
-
-| Column Name     | Data Type   | Description                            | Constraints   |
-|-----------------|-------------|----------------------------------------|---------------|
-| idParking       | INT         | Unique identifier for each parking lot | Primary Key   |
-| parkingLocation | VARCHAR(45) | Location of the parking lot            | Nullable      |
-| parkingType     | VARCHAR(45) | Type of parking (e.g., student, visitor) | Nullable      |
+| Column Name   | Description                         | Data Type | Size | Format | Key? |
+|---------------|-------------------------------------|-----------|------|--------|------|
+| idClasses     | PK, unique identifier for each class | INT       |      |        | PK   |
+| className     | Name of the class                   | VARCHAR   | 45   |        |      |
 
 ---
 
-## 7. Table: ResidenceHalls
+## Table: Enrollment
 
-| Column Name          | Data Type   | Description                                      | Constraints   |
-|----------------------|-------------|--------------------------------------------------|---------------|
-| idResidenceHall       | INT         | Unique identifier for each residence hall        | Primary Key   |
-| residenceHallName     | VARCHAR(45) | Name of the residence hall                       | Nullable      |
-| residenceHallOccupancy| VARCHAR(45) | Maximum occupancy of the residence hall          | Nullable      |
-
----
-
-## 8. Table: ParkingAssignment
-
-| Column Name                 | Data Type   | Description                            | Constraints   |
-|-----------------------------|-------------|----------------------------------------|---------------|
-| idParkingAssignment          | INT         | Unique identifier for each parking assignment | Primary Key   |
-| idParking                   | INT         | Foreign key referencing `Parking.idParking` | Foreign Key   |
-| idStudent                   | INT         | Foreign key referencing `Student.idStudent` | Foreign Key   |
-| parkingAssignmentStartDate   | VARCHAR(45) | Start date of the parking assignment   | Nullable      |
-| parkingAssignmentEndDate     | VARCHAR(45) | End date of the parking assignment     | Nullable      |
+| Column Name   | Description                                    | Data Type | Size | Format | Key? |
+|---------------|------------------------------------------------|-----------|------|--------|------|
+| idStudent     | FK, references `Student.idStudent`             | INT       |      |        | PK, FK |
+| idClasses     | FK, references `Classes.idClasses`             | INT       |      |        | PK, FK |
 
 ---
 
-## 9. Table: StudentInvolvement
+## Table: Organizations
 
-| Column Name           | Data Type   | Description                                       | Constraints   |
-|-----------------------|-------------|---------------------------------------------------|---------------|
-| idStudentInvolvement   | INT         | Unique identifier for each involvement record     | Primary Key   |
-| idOrganizations        | INT         | Foreign key referencing `Organizations.idOrganizations` | Foreign Key   |
-| idStudent              | INT         | Foreign key referencing `Student.idStudent`       | Foreign Key   |
-
----
-
-## 10. Table: DormRoom
-
-| Column Name        | Data Type   | Description                                 | Constraints        |
-|--------------------|-------------|---------------------------------------------|--------------------|
-| idDormRoom         | INT         | Unique identifier for each dorm room        | Primary Key        |
-| idResidenceHall    | INT         | Foreign key referencing `ResidenceHalls.idResidenceHall` | Primary Key, Foreign Key |
-| dormRoomType       | VARCHAR(45) | Type of dorm room (e.g., single, double)    | Nullable           |
+| Column Name         | Description                                  | Data Type | Size | Format | Key? |
+|---------------------|----------------------------------------------|-----------|------|--------|------|
+| idOrganizations     | PK, unique identifier for each organization  | INT       |      |        | PK   |
+| organizationName    | Name of the organization                     | VARCHAR   | 45   |        |      |
+| organizationType    | Type of the organization (e.g., club, society) | VARCHAR   | 45   |        |      |
 
 ---
 
-## 11. Table: RoomAssignment
+## Table: Parking
 
-| Column Name            | Data Type   | Description                                  | Constraints   |
-|------------------------|-------------|----------------------------------------------|---------------|
-| idRoomAssignment        | INT         | Unique identifier for each room assignment   | Primary Key   |
-| idDormRoom              | INT         | Foreign key referencing `DormRoom.idDormRoom` | Foreign Key   |
-| idStudent               | INT         | Foreign key referencing `Student.idStudent`   | Foreign Key   |
-| roomAssignmentStartDate | VARCHAR(45) | Start date of the room assignment            | Nullable      |
-| roomAssignmentEndDate   | VARCHAR(45) | End date of the room assignment              | Nullable      |
+| Column Name     | Description                           | Data Type | Size | Format | Key? |
+|-----------------|---------------------------------------|-----------|------|--------|------|
+| idParking       | PK, unique number identifying parking | INT       | 3    |        | PK   |
+| parkingLocation | Name of location for parking          | VARCHAR   | 45   |        |      |
+| parkingType     | Identifies the type of parking        | VARCHAR   | 45   |        |      |
 
 ---
 
-## 12. Table: Programs
+## Table: ResidenceHalls
 
-| Column Name   | Data Type   | Description                             | Constraints   |
-|---------------|-------------|-----------------------------------------|---------------|
-| idPrograms    | INT         | Unique identifier for each program      | Primary Key   |
-| programName   | VARCHAR(45) | Name of the program                     | Nullable      |
-| programType   | VARCHAR(45) | Type of the program (e.g., degree, certificate) | Nullable      |
+| Column Name            | Description                                   | Data Type | Size | Format | Key? |
+|------------------------|-----------------------------------------------|-----------|------|--------|------|
+| idResidenceHall         | PK, unique identifier for each residence hall | INT       |      |        | PK   |
+| residenceHallName       | Name of the residence hall                    | VARCHAR   | 45   |        |      |
+| residenceHallOccupancy  | Maximum occupancy of the residence hall       | VARCHAR   | 45   |        |      |
 
 ---
 
-## 13. Table: StudentPrograms
+## Table: ParkingAssignment
 
-| Column Name                | Data Type   | Description                                    | Constraints   |
-|----------------------------|-------------|------------------------------------------------|---------------|
-| idStudent                  | INT         | Foreign key referencing `Student.idStudent`     | Primary Key, Foreign Key |
-| idPrograms                 | INT         | Foreign key referencing `Programs.idPrograms`   | Primary Key, Foreign Key |
-| admitTerm                  | VARCHAR(45) | The term in which the student was admitted      | Nullable      |
-| expectedGraduationTerm     | VARCHAR(45) | The term in which the student is expected to graduate | Nullable      |
+| Column Name                | Description                                | Data Type | Size | Format | Key? |
+|----------------------------|--------------------------------------------|-----------|------|--------|------|
+| idParkingAssignment         | PK, unique identifier for parking assignment | INT       |      |        | PK   |
+| idParking                   | FK, references `Parking.idParking`         | INT       |      |        | FK   |
+| idStudent                   | FK, references `Student.idStudent`         | INT       |      |        | FK   |
+| parkingAssignmentStartDate  | Start date of parking assignment           | VARCHAR   | 45   |        |      |
+| parkingAssignmentEndDate    | End date of parking assignment             | VARCHAR   | 45   |        |      |
+
+---
+
+## Table: StudentInvolvement
+
+| Column Name           | Description                                       | Data Type | Size | Format | Key? |
+|-----------------------|---------------------------------------------------|-----------|------|--------|------|
+| idStudentInvolvement   | PK, unique identifier for involvement record      | INT       |      |        | PK   |
+| idOrganizations        | FK, references `Organizations.idOrganizations`   | INT       |      |        | FK   |
+| idStudent              | FK, references `Student.idStudent`               | INT       |      |        | FK   |
+
+---
+
+## Table: DormRoom
+
+| Column Name        | Description                                  | Data Type | Size | Format | Key? |
+|--------------------|----------------------------------------------|-----------|------|--------|------|
+| idDormRoom         | PK, unique identifier for each dorm room     | INT       |      |        | PK   |
+| idResidenceHall    | FK, references `ResidenceHalls.idResidenceHall` | INT    |      |        | PK, FK |
+| dormRoomType       | Type of dorm room (e.g., single, double)     | VARCHAR   | 45   |        |      |
+
+---
+
+## Table: RoomAssignment
+
+| Column Name            | Description                                  | Data Type | Size | Format | Key? |
+|------------------------|----------------------------------------------|-----------|------|--------|------|
+| idRoomAssignment        | PK, unique identifier for room assignment   | INT       |      |        | PK   |
+| idDormRoom              | FK, references `DormRoom.idDormRoom`        | INT       |      |        | FK   |
+| idStudent               | FK, references `Student.idStudent`          | INT       |      |        | FK   |
+| roomAssignmentStartDate | Start date of the room assignment            | VARCHAR   | 45   |        |      |
+| roomAssignmentEndDate   | End date of the room assignment              | VARCHAR   | 45   |        |      |
+
+---
+
+## Table: Programs
+
+| Column Name   | Description                             | Data Type | Size | Format | Key? |
+|---------------|-----------------------------------------|-----------|------|--------|------|
+| idPrograms    | PK, unique identifier for each program  | INT       |      |        | PK   |
+| programName   | Name of the program                     | VARCHAR   | 45   |        |      |
+| programType   | Type of the program (e.g., degree, certificate) | VARCHAR | 45   |        |      |
+
+---
+
+## Table: StudentPrograms
+
+| Column Name                | Description                                    | Data Type | Size | Format | Key? |
+|----------------------------|------------------------------------------------|-----------|------|--------|------|
+| idStudent                  | FK, references `Student.idStudent`             | INT       |      |        | PK, FK |
+| idPrograms                 | FK, references `Programs.idPrograms`           | INT       |      |        | PK, FK |
+| admitTerm                  | Term in which the student was admitted         | VARCHAR   | 45   |        |      |
+| expectedGraduationTerm     | Term in which the student is expected to graduate | VARCHAR | 45   |        |      |
 
 ---
