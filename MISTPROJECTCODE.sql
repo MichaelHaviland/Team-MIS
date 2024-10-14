@@ -1,10 +1,3 @@
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
 
@@ -100,7 +93,7 @@ ENGINE = InnoDB;
 -- Table `ResidenceHalls`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ResidenceHalls` (
-  `idResidenceHall` INT NULL,
+  `idResidenceHall` INT NOT NULL,
   `residenceHallName` VARCHAR(45) NULL,
   `residenceHallOccupancy` VARCHAR(45) NULL,
   PRIMARY KEY (`idResidenceHall`))
@@ -112,21 +105,21 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ParkingAssignment` (
   `idParkingAssignment` INT NOT NULL,
-  `idStudent` INT NOT NULL,
   `idParking` INT NOT NULL,
+  `idStudent` INT NOT NULL,
   `parkingAssignmentStartDate` VARCHAR(45) NULL,
   `parkingAssignmentEndDate` VARCHAR(45) NULL,
-  PRIMARY KEY (`idParkingAssignment`, `idStudent`),
-  INDEX `fk_Parking Assignment_Student1_idx` (`idStudent` ASC) VISIBLE,
+  PRIMARY KEY (`idParkingAssignment`),
   INDEX `fk_Parking Assignment_Parking1_idx` (`idParking` ASC) VISIBLE,
-  CONSTRAINT `fk_Parking Assignment_Student1`
-    FOREIGN KEY (`idStudent`)
-    REFERENCES `Student` (`idStudent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_ParkingAssignment_Student1_idx` (`idStudent` ASC) VISIBLE,
   CONSTRAINT `fk_Parking Assignment_Parking1`
     FOREIGN KEY (`idParking`)
     REFERENCES `Parking` (`idParking`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ParkingAssignment_Student1`
+    FOREIGN KEY (`idStudent`)
+    REFERENCES `Student` (`idStudent`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -137,19 +130,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `StudentInvolvement` (
   `idStudentInvolvement` INT NOT NULL,
-  `idStudent` INT NOT NULL,
   `idOrganizations` INT NOT NULL,
-  PRIMARY KEY (`idStudentInvolvement`, `idStudent`),
-  INDEX `fk_Student Involvement_Student1_idx` (`idStudent` ASC) VISIBLE,
+  `idStudent` INT NOT NULL,
+  PRIMARY KEY (`idStudentInvolvement`),
   INDEX `fk_Student Involvement_Organizations1_idx` (`idOrganizations` ASC) VISIBLE,
-  CONSTRAINT `fk_Student Involvement_Student1`
-    FOREIGN KEY (`idStudent`)
-    REFERENCES `Student` (`idStudent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_StudentInvolvement_Student1_idx` (`idStudent` ASC) VISIBLE,
   CONSTRAINT `fk_Student Involvement_Organizations1`
     FOREIGN KEY (`idOrganizations`)
     REFERENCES `Organizations` (`idOrganizations`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_StudentInvolvement_Student1`
+    FOREIGN KEY (`idStudent`)
+    REFERENCES `Student` (`idStudent`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -160,8 +153,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DormRoom` (
   `idDormRoom` INT NOT NULL,
-  `dormRoomType` VARCHAR(45) NULL,
   `idResidenceHall` INT NOT NULL,
+  `dormRoomType` VARCHAR(45) NULL,
   PRIMARY KEY (`idDormRoom`, `idResidenceHall`),
   INDEX `fk_DormRoom_ResidenceHalls1_idx` (`idResidenceHall` ASC) VISIBLE,
   CONSTRAINT `fk_DormRoom_ResidenceHalls1`
@@ -177,21 +170,21 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `RoomAssignment` (
   `idRoomAssignment` INT NOT NULL,
-  `idStudent` INT NOT NULL,
   `idDormRoom` INT NOT NULL,
+  `idStudent` INT NOT NULL,
   `roomAssignmentStartDate` VARCHAR(45) NULL,
   `roomAssignmentEndDate` VARCHAR(45) NULL,
-  PRIMARY KEY (`idRoomAssignment`, `idStudent`),
-  INDEX `fk_RoomAssignment_Student1_idx` (`idStudent` ASC) VISIBLE,
+  PRIMARY KEY (`idRoomAssignment`),
   INDEX `fk_RoomAssignment_DormRoom1_idx` (`idDormRoom` ASC) VISIBLE,
-  CONSTRAINT `fk_RoomAssignment_Student1`
-    FOREIGN KEY (`idStudent`)
-    REFERENCES `Student` (`idStudent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_RoomAssignment_Student1_idx` (`idStudent` ASC) VISIBLE,
   CONSTRAINT `fk_RoomAssignment_DormRoom1`
     FOREIGN KEY (`idDormRoom`)
     REFERENCES `DormRoom` (`idDormRoom`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_RoomAssignment_Student1`
+    FOREIGN KEY (`idStudent`)
+    REFERENCES `Student` (`idStudent`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -212,12 +205,11 @@ ENGINE = InnoDB;
 -- Table `StudentPrograms`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `StudentPrograms` (
-  `idStudentPrograms` INT NOT NULL,
   `idStudent` INT NOT NULL,
   `idPrograms` INT NOT NULL,
   `admitTerm` VARCHAR(45) NULL,
   `expectedGraduationTerm` VARCHAR(45) NULL,
-  PRIMARY KEY (`idStudentPrograms`, `idStudent`),
+  PRIMARY KEY (`idStudent`, `idPrograms`),
   INDEX `fk_StudentPrograms_Student1_idx` (`idStudent` ASC) VISIBLE,
   INDEX `fk_StudentPrograms_Programs1_idx` (`idPrograms` ASC) VISIBLE,
   CONSTRAINT `fk_StudentPrograms_Student1`
